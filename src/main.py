@@ -17,6 +17,8 @@ app.add_middleware(
 )
 
 app.mount("/frontend", StaticFiles(directory="frontend"), name="frontend")
+app.mount("/audio", StaticFiles(directory="../audio"), name="audio")
+app.mount("/assets", StaticFiles(directory="../assets"), name="assets")
 
 class Relevante(BaseModel):
     relevante: str
