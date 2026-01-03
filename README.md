@@ -16,6 +16,7 @@
 ![Python](https://img.shields.io/badge/Python-3.7+-blue?logo=python&logoColor=white&style=for-the-badge)
 ![FastAPI](https://img.shields.io/badge/FastAPI-0.95.2-red?logo=fastapi&logoColor=white&style=for-the-badge)
 ![JavaScript](https://img.shields.io/badge/JavaScript-ES6-yellow?logo=javascript&logoColor=white&style=for-the-badge)
+![SQLite3](https://img.shields.io/badge/SQLite3-DataBase-cyan?logo=sqlite&logoColor=white&style=for-the-badge)
 ![Requests](https://img.shields.io/badge/requests-HTTP-green?logo=requests&logoColor=white&style=for-the-badge)
 ![Uvicorn](https://img.shields.io/badge/Uvicorn-Server-pink?logo=uvicorn&logoColor=white&style=for-the-badge)
 
