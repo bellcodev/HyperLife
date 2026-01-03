@@ -121,3 +121,7 @@ button:hover {
 input[disabled] {
     opacity: 0.5;
 }
+
+audio {
+    display: none;
+}

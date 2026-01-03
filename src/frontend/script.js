@@ -37,23 +37,34 @@ if (currentDay === 1) {
     fetch("/resetMonth", { method: "POST" });
 }
 
+function playAudio(audio) {
+    const audioElement = document.getElementById(audio);
+    audioElement.play();
+}
+
 async function newRelevante() {
-    const input = document.getElementById(`input-${currentDay}`);
-    const text = input.value;
+    try {
+        playAudio("alert");
+        const input = document.getElementById(`input-${currentDay}`);
+        const text = input.value;
 
-    if (!text) return;
+        if (!text) return;
 
-    await fetch("/newRelevante", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ relevante: text })
-    });
+        await fetch("/newRelevante", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ relevante: text })
+        });
 
-    const container = input.parentElement;
-    container.innerHTML = `
-        <strong>${currentDay}/${month}/${year}</strong><br>
-        <label>${text}</label>
-    `;
+        const container = input.parentElement;
+        container.innerHTML = `
+            <strong>${currentDay}/${month}/${year}</strong><br>
+            <label>${text}</label>
+        `;
+    } catch (error) {
+        playAudio("error")
+        alert(error);
+    }
 }
 
 async function getHechos() {
