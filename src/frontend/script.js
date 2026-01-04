@@ -33,6 +33,21 @@ for (let i = 1; i <= daysInMonth; i++) {
     daysContainer.appendChild(div);
 }
 
+const logros = document.getElementById("logros");
+
+fetch("/getLogros")
+.then(res => res.json())
+.then(data => {
+if (!data || data.length === 0) {
+for (let i = 1; i <= 5; i++) {
+    logros.innerHTML += `<label>Logro ${i}</label><input type="text" id="logro-${i}">`;
+}
+} else {
+console.log("Logros recibidos:", data);
+}
+})
+.catch(err => console.error("Error al cargar logros:", err));
+
 if (currentDay === 1) {
     fetch("/resetMonth", { method: "POST" });
 }
