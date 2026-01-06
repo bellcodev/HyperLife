@@ -1,4 +1,4 @@
-from fastapi import FastAPI, Form
+from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
@@ -45,11 +45,7 @@ def createTable():
     cursor.execute("""
         CREATE TABLE IF NOT EXISTS dayLogros (
             day INTEGER,
-            l1 TEXT,
-            l2 TEXT,
-            l3 TEXT,
-            l4 TEXT,
-            l5 TEXT
+            total INTEGER
         )
     """)
     conn.commit()
@@ -84,6 +80,7 @@ def reset_month():
     conn = sqlite3.connect("data.db")
     cursor = conn.cursor()
     cursor.execute("DELETE FROM relevante")
+    cursor.execute("DELETE FROM dayLogros")
     conn.commit()
     return {"status": "reset"}
 
@@ -117,18 +114,14 @@ async def send_day_logros(
     data: dict = Body(...)
 ):
     day = int(data.get("day", False))
-    l1 = int(data.get("l1", False))
-    l2 = int(data.get("l2", False))
-    l3 = int(data.get("l3", False))
-    l4 = int(data.get("l4", False))
-    l5 = int(data.get("l5", False))
+    total = int(data.get("total", False))
 
     conn = sqlite3.connect("data.db")
     cursor = conn.cursor()
     cursor.execute("""
-        INSERT INTO dayLogros (day, l1, l2, l3, l4, l5)
-        VALUES (?, ?, ?, ?, ?, ?)
-    """, (day, l1, l2, l3, l4, l5))
+        INSERT INTO dayLogros (day, total)
+        VALUES (?, ?)
+    """, (day, total))
     conn.commit()
     conn.close()
 
