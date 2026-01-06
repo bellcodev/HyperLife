@@ -42,6 +42,16 @@ def createTable():
             logro5 TEXT
         )
     """)
+    cursor.execute("""
+        CREATE TABLE IF NOT EXISTS dayLogros (
+            day INTEGER,
+            l1 TEXT,
+            l2 TEXT,
+            l3 TEXT,
+            l4 TEXT,
+            l5 TEXT
+        )
+    """)
     conn.commit()
     conn.close()
 
@@ -85,14 +95,13 @@ async def get_logros():
     data = cursor.fetchone()
     return data
 
+from fastapi import Body
+
 @app.post("/addLogros")
 async def addLogros(
-    l1: str = Form(...),
-    l2: str = Form(...),
-    l3: str = Form(...),
-    l4: str = Form(...),
-    l5: str = Form(...)
+    data: dict = Body(...)
 ):
+    l1, l2, l3, l4, l5 = data["l1"], data["l2"], data["l3"], data["l4"], data["l5"]
     conn = sqlite3.connect("data.db")
     cursor = conn.cursor()
     cursor.execute(
@@ -100,4 +109,27 @@ async def addLogros(
         (l1, l2, l3, l4, l5)
     )
     conn.commit()
+    conn.close()
     return {"status": "ok"}
+
+@app.post("/sendDayLogros")
+async def send_day_logros(
+    data: dict = Body(...)
+):
+    day = int(data.get("day", False))
+    l1 = int(data.get("l1", False))
+    l2 = int(data.get("l2", False))
+    l3 = int(data.get("l3", False))
+    l4 = int(data.get("l4", False))
+    l5 = int(data.get("l5", False))
+
+    conn = sqlite3.connect("data.db")
+    cursor = conn.cursor()
+    cursor.execute("""
+        INSERT INTO dayLogros (day, l1, l2, l3, l4, l5)
+        VALUES (?, ?, ?, ?, ?, ?)
+    """, (day, l1, l2, l3, l4, l5))
+    conn.commit()
+    conn.close()
+
+    return {"status": "ok", "msg": "Logros del día guardados"}

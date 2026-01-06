@@ -124,3 +124,7 @@ input[disabled] {
 audio {
     display: none;
 }
+
+#logros {
+    text-align: center;
+}
