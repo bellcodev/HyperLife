@@ -1,6 +1,10 @@
 # LifeMap
 
-<img width="1343" height="663" alt="image" src="https://github.com/user-attachments/assets/0e031fb5-be39-4d32-aa2b-29836d0873c8" />
+| <img width="1330" height="677" alt="image" src="https://github.com/user-attachments/assets/e9e26923-92e0-4ac5-86d1-7c4f9b7358c8" /> | <img width="1332" height="561" alt="image" src="https://github.com/user-attachments/assets/cd48cec7-f9c7-49a7-adc2-c1e5ffd79191" /> |
+|---|---|
+
+| <img width="1334" height="334" alt="image" src="https://github.com/user-attachments/assets/9b38e1d0-e8bf-40df-bad0-418f8bb0b368" /> | <img width="1331" height="156" alt="image" src="https://github.com/user-attachments/assets/5aa83423-5a9a-43da-bb81-b24ee90737d7" /> |
+|---|---|
 
 ---
 
