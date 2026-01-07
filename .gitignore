@@ -1,4 +1,3 @@
 src/__pycache__/
 src/data.db
-*.pyc
-src/test.js
+src/table.py
