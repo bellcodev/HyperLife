@@ -5,6 +5,9 @@ from fastapi.responses import FileResponse
 from pydantic import BaseModel
 import sqlite3
 from datetime import datetime
+import pandas as pd
+import plotly.express as px
+from fastapi import Body
 
 app = FastAPI()
 
@@ -19,6 +22,7 @@ app.add_middleware(
 app.mount("/frontend", StaticFiles(directory="frontend"), name="frontend")
 app.mount("/audio", StaticFiles(directory="../audio"), name="audio")
 app.mount("/assets", StaticFiles(directory="../assets"), name="assets")
+app.mount("/src", StaticFiles(directory="/"), name="src")
 
 class Relevante(BaseModel):
     relevante: str
@@ -92,7 +96,6 @@ async def get_logros():
     data = cursor.fetchone()
     return data
 
-from fastapi import Body
 
 @app.post("/addLogros")
 async def addLogros(
@@ -126,3 +129,34 @@ async def send_day_logros(
     conn.close()
 
     return {"status": "ok", "msg": "Logros del día guardados"}
+
+@app.get("/stats")
+async def stats():
+    conn = sqlite3.connect("data.db")
+    cursor = conn.cursor()
+    cursor.execute("""SELECT * FROM dayLogros""")
+    data = cursor.fetchall()
+
+    dias = []
+    total = []
+    for d in data:
+        dias.append(d[0])
+        total.append(d[1])
+
+    datos = {
+        "Día": dias,
+        "Metas Cumplidas": total
+    }
+    df = pd.DataFrame(datos).sort_values(by="Día")
+    meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"]
+    fig = px.line(
+        df,
+        x="Día",
+        y="Metas Cumplidas",
+        markers=True,
+        title=f"Estadística de metas cumplidas de {meses[datetime.now().month - 1]}/{datetime.now().year}"
+    )
+    fig.show()
+
+    conn.close()
+    return {"status": "ok"}
