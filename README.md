@@ -6,6 +6,10 @@
 | <img width="1334" height="334" alt="image" src="https://github.com/user-attachments/assets/9b38e1d0-e8bf-40df-bad0-418f8bb0b368" /> | <img width="1331" height="156" alt="image" src="https://github.com/user-attachments/assets/5aa83423-5a9a-43da-bb81-b24ee90737d7" /> |
 |---|---|
 
+| <img width="1333" height="628" alt="image" src="https://github.com/user-attachments/assets/90023841-9793-452b-9812-8f174280954b" /> |
+|---|
+
+
 ---
 
 ![License](https://img.shields.io/github/license/bellcodev/LifeMap?style=flat-square)
