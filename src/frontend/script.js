@@ -46,7 +46,7 @@ function checkThisDay() {
     const lastDay = localStorage.getItem("logroDay")
     const content = document.getElementById("logros")
     if (lastDay === `${currentDay}`) {
-        content.innerHTML = `<p>Ya registraste las metas cumplidas hoy</p><br><button>Ver estadisticas</button>`
+        content.innerHTML = `<p>Ya registraste las metas cumplidas hoy</p><br><button onclick="fetch('/stats', {method: 'GET'});">Ver estadisticas</button>`
     } else {
         genLogrosCBtn()
     }
