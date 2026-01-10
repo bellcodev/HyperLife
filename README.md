@@ -3,6 +3,8 @@
 ![Banner](https://github.com/user-attachments/assets/0ae04c4c-670f-4b77-ad1b-7df8d59cf090)
 
 LifeMap es una agenda simple, rapida e intuitiva para registrar hechos relevantes de tu dia a dia, un marcador de metas diarias y una grafica sobre los resultados de tu mes.
+
+<p>Una web de habitos diarios puede aumentar entre un 20% a un 40% tu productividad diaria</p>
 ---
 
 ![License](https://img.shields.io/github/license/bellcodev/LifeMap?style=flat-square&style=for-the-badge)
