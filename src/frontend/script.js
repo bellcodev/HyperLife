@@ -6,6 +6,14 @@ const currentDay = now.getDate();
 
 const relevante = document.getElementById("relevante");
 
+function checkConn() {
+    if (navigator.onLine) {
+        document.getElementById("conn").src = "/assets/online.svg";
+    } else {
+        document.getElementById("conn").src = "/assets/offline.svg";
+    }
+}
+
 const months = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
 relevante.innerHTML = `
 <h2>Hechos relevantes de ${months[month - 1]} ${year}</h2>
@@ -184,3 +192,4 @@ async function getHechos() {
 }
 
 getHechos();
+setInterval(checkConn, 1000)

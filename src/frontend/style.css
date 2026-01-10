@@ -4,11 +4,29 @@
     box-sizing: border-box;
 }
 
+::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f4f4f9;
+    border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #6a6886;
+    border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #6a6886;
+}
+
 body {
     font-family: 'Arial', sans-serif;
     background-color: #f4f4f9;
     color: #333;
-    padding: 20px;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
@@ -127,4 +145,27 @@ audio {
 
 #logros {
     text-align: center;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+    top: 0;
+    left: 0;
+}
+
+nav img {
+    height: 40px;
+}
+
+.social a {
+    margin-left: 15px;
+}
+
+#conn {
+    width: 50px;
 }
