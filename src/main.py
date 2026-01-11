@@ -1,4 +1,4 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Form
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
@@ -175,6 +175,18 @@ async def delCurrentDay():
     conn = sqlite3.connect("data.db")
     cursor = conn.cursor()
     cursor.execute(f"DELETE FROM relevante WHERE day = {datetime.now().day}")
+    conn.commit()
+    conn.close()
+    return "sucess"
+
+@app.delete("/delRelevante")
+async def delRelevante(
+    data: dict = Body(...)
+):
+    d = int(data.get("d", False))
+    conn = sqlite3.connect("data.db")
+    cursor = conn.cursor()
+    cursor.execute(f"DELETE FROM relevante WHERE day = {d}")
     conn.commit()
     conn.close()
     return "sucess"

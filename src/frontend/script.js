@@ -15,24 +15,39 @@ relevante.innerHTML = `
 
 const daysContainer = document.getElementById("days");
 
-for (let i = 1; i <= daysInMonth; i++) {
-    const div = document.createElement("div");
+async function genRelevanteI() {
+    daysContainer.innerHTML = ``
+    for (let i = 1; i <= daysInMonth; i++) {
+        const div = document.createElement("div");
 
-    if (i === currentDay) {
-        div.innerHTML = `
-            <strong>${i}/${month}/${year}</strong>
-            <input type="text" id="input-${i}">
-            <button onclick="newRelevante()">Guardar</button>
-        `;
-    } else {
-        div.innerHTML = `
-            <strong>${i}/${month}/${year}</strong>
-            <span id="day-${i}"></span>
-        `;
+        if (i === currentDay) {
+            if (localStorage.getItem("lastRelevante") != currentDay) {
+                div.innerHTML = `
+                    <strong>${i}/${month}/${year}</strong>
+                    <input type="text" id="input-${i}">
+                    <button onclick="newRelevante()">Guardar</button>
+                `;
+            } else {
+                div.innerHTML = `
+                    <strong>${i}/${month}/${year}</strong>
+                    <label id="day-${i}"></label> <button onclick="editRelevante()" class="editBtn">✏️</button>
+                `;
+            }
+        } else {
+            div.innerHTML = `
+                <strong>${i}/${month}/${year}</strong>
+                <label id="day-${i}"></label>
+            `;
+            if (i < currentDay) {
+                div.innerHTML += `<button onclick="delRelevante(${i})" class="delBtn">🗑️</button>`
+            }
+        }
+
+        daysContainer.appendChild(div);
     }
-
-    daysContainer.appendChild(div);
+    getHechos();
 }
+genRelevanteI()
 
 const logros = document.getElementById("logros");
 
@@ -168,8 +183,9 @@ async function newRelevante() {
         const container = input.parentElement;
         container.innerHTML = `
             <strong>${currentDay}/${month}/${year}</strong><br>
-            <label>${text}</label>
+            <label>${text}</label> <button onclick="editRelevante()">✏️</button>
         `;
+        localStorage.setItem("lastRelevante", currentDay)
     } catch (error) {
         playAudio("error")
         alert(error);
@@ -186,7 +202,6 @@ async function getHechos() {
     });
 }
 
-getHechos();
 setInterval(() => {
     if (navigator.onLine) {
         document.getElementById("conn").src = "/assets/online.svg";
@@ -194,3 +209,18 @@ setInterval(() => {
         document.getElementById("conn").src = "/assets/offline.svg";
     }
 }, 1000)
+
+async function editRelevante() {
+    await fetch("/delCurrentRel", {method: "DELETE"})
+    localStorage.setItem("lastRelevante", "")
+    genRelevanteI()
+}
+
+async function delRelevante(day) {
+    await fetch("/delRelevante", {
+        method: "DELETE",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ d: day })
+    })
+    genRelevanteI()
+}

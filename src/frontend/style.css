@@ -169,3 +169,8 @@ nav img {
 #conn {
     width: 50px;
 }
+
+.delBtn, .editBtn {
+    width: 40px;
+    background-color: transparent;
+}
