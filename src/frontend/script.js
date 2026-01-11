@@ -3,16 +3,9 @@ const year = now.getFullYear();
 const month = now.getMonth() + 1;
 const daysInMonth = new Date(year, month, 0).getDate();
 const currentDay = now.getDate();
+const current = `${currentDay}, ${now.getHours()}:${now.getMinutes()}:${now.getSeconds()}`
 
 const relevante = document.getElementById("relevante");
-
-function checkConn() {
-    if (navigator.onLine) {
-        document.getElementById("conn").src = "/assets/online.svg";
-    } else {
-        document.getElementById("conn").src = "/assets/offline.svg";
-    }
-}
 
 const months = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
 relevante.innerHTML = `
@@ -44,6 +37,8 @@ for (let i = 1; i <= daysInMonth; i++) {
 const logros = document.getElementById("logros");
 
 function genLogrosI() {
+    fetch('/resetLogros', { method: 'POST' })
+    logros.innerHTML = ``
     for (let i = 1; i <= 5; i++) {
         logros.innerHTML += `<label>Logro ${i}</label><input type="text" id="logro-${i}">`;
     }
@@ -96,7 +91,7 @@ async function sendThisDay() {
 
 async function genLogrosCBtn() {
     fetch("/getLogros").then(res => res.json()).then(data => {
-        logros.innerHTML = ``
+        logros.innerHTML = `<button onclick="genLogrosI()" style="width: 40px; font-family: monospace; color: #000000;">✏️</button>`
         for (let i = 0; i <= 4; i++) {
             logros.innerHTML += `
             <div style="display: flex; margin: auto;">
@@ -147,7 +142,7 @@ async function addLogros() {
     }
 }
 
-if (currentDay === 1) {
+if (current === "1, 12:0:0") {
     fetch("/resetMonth", { method: "POST" });
 }
 
@@ -192,4 +187,10 @@ async function getHechos() {
 }
 
 getHechos();
-setInterval(checkConn, 1000)
+setInterval(() => {
+    if (navigator.onLine) {
+        document.getElementById("conn").src = "/assets/online.svg";
+    } else {
+        document.getElementById("conn").src = "/assets/offline.svg";
+    }
+}, 1000)

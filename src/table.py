@@ -1,7 +1,8 @@
 import sqlite3 as sql
 
-conn = sql.connect("c:/programacion/programas/lifemap/src/data.db")
+conn = sql.connect("c:/programacion/lifemap/src/data.db")
 cursor = conn.cursor()
-cursor.execute("DELETE FROM logros")
-conn.commit()
-conn.close()
+cursor.execute("INSERT INTO relevante (day, hecho) VALUES (9, 'fviv'), (10, 'khvbfhvb')")
+cursor.execute("SELECT day, hecho FROM relevante")
+data = cursor.fetchall()
+print(data)

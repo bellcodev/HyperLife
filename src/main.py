@@ -160,3 +160,21 @@ async def stats():
 
     conn.close()
     return {"status": "ok"}
+
+@app.post("/resetLogros")
+def resetLogros():
+    conn = sqlite3.connect("data.db")
+    cursor = conn.cursor()
+    cursor.execute("DELETE FROM logros")
+    conn.commit()
+    conn.close()
+    return "sucess"
+
+@app.delete("/delCurrentRel")
+async def delCurrentDay():
+    conn = sqlite3.connect("data.db")
+    cursor = conn.cursor()
+    cursor.execute(f"DELETE FROM relevante WHERE day = {datetime.now().day}")
+    conn.commit()
+    conn.close()
+    return "sucess"
