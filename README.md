@@ -16,9 +16,9 @@ LifeMap es una agenda simple, rapida e intuitiva para registrar hechos relevante
 ---
 
 **Hechos Relevantes**
-| <img width="1230" height="670" alt="image" src="https://github.com/user-attachments/assets/18f551fc-4402-4995-ab13-109ce28753b3" /> |
+| <img width="1349" height="681" alt="image" src="https://github.com/user-attachments/assets/6ad34bfe-b264-49a3-8af4-91fb6e5d5916" /> |
 |---|
-<p>Permite registrar y ver hechos relevantes de tu mes actual(segun la fecha de tu dispositivo)</p>
+<p>Permite registrar, ver, editar y borrar hechos relevantes de tu mes actual(segun la fecha de tu dispositivo), solo puedes editar el hecho ya registrado del dia actual</p>
 
 **Metas semanales**
 | <img width="1323" height="573" alt="image" src="https://github.com/user-attachments/assets/5ecf581a-04ea-4a60-a1a6-66f53670dcb5" /> | <img width="1340" height="346" alt="image" src="https://github.com/user-attachments/assets/4a9b51b6-6273-4398-8aa0-88e67eb358b2" /> |
