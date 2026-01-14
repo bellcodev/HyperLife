@@ -30,7 +30,7 @@ async function genRelevanteI() {
             } else {
                 div.innerHTML = `
                     <strong>${i}/${month}/${year}</strong>
-                    <label id="day-${i}"></label> <button onclick="editRelevante()" class="editBtn">✏️</button>
+                    <label id="day-${i}"></label> <button onclick="editRelevante()" class="editBtn" style="width: 50px;"><img style="width: 35px;" src="/assets/edit.svg"></button>
                 `;
             }
         } else {
@@ -39,7 +39,7 @@ async function genRelevanteI() {
                 <label id="day-${i}"></label>
             `;
             if (i < currentDay) {
-                div.innerHTML += `<button onclick="delRelevante(${i})" class="delBtn">🗑️</button>`
+                div.innerHTML += `<button onclick="delRelevante(${i})" class="delBtn" bottom: 0; style="width: 50px;"><img style="width: 35px;" src="/assets/delete.svg"></button>`
             }
         }
 
@@ -106,7 +106,7 @@ async function sendThisDay() {
 
 async function genLogrosCBtn() {
     fetch("/getLogros").then(res => res.json()).then(data => {
-        logros.innerHTML = `<button onclick="genLogrosI()" style="width: 40px; font-family: monospace; color: #000000;">✏️</button>`
+        logros.innerHTML = `<button onclick="genLogrosI()" style="width: 50px;"><img style="width: 35px;" src="/assets/edit.svg"></button>`
         for (let i = 0; i <= 4; i++) {
             logros.innerHTML += `
             <div style="display: flex; margin: auto;">
@@ -183,7 +183,7 @@ async function newRelevante() {
         const container = input.parentElement;
         container.innerHTML = `
             <strong>${currentDay}/${month}/${year}</strong><br>
-            <label>${text}</label> <button onclick="editRelevante()">✏️</button>
+            <label>${text}</label> <button onclick="editRelevante()" style="width: 50px;"><img style="width: 35px;" src="/assets/edit.svg"> </button>
         `;
         localStorage.setItem("lastRelevante", currentDay)
     } catch (error) {
