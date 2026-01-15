@@ -163,7 +163,9 @@ if (current === "1, 12:0:0") {
 
 function playAudio(audio) {
     const audioElement = document.getElementById(audio);
-    audioElement.play();
+    if (document.getElementById("vol").src.includes("alert")) {
+        audioElement.play();
+    }
 }
 
 async function newRelevante() {
@@ -223,4 +225,12 @@ async function delRelevante(day) {
         body: JSON.stringify({ d: day })
     })
     genRelevanteI()
+}
+
+async function sonido() {
+    if (document.getElementById("vol").src.includes("alert")) {
+        document.getElementById("vol").src = "/assets/silence.svg"
+    } else {
+        document.getElementById("vol").src = "/assets/alert.svg"
+    }
 }
