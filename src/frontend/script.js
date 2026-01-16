@@ -17,6 +17,14 @@ const daysContainer = document.getElementById("days");
 
 async function genRelevanteI() {
     daysContainer.innerHTML = ``
+    const response = await fetch("/getRelevante");
+    const data = await response.json();
+    let relText = []
+    data.forEach(([day, text]) => {
+        if (!text) {text = ""}
+        relText[day] = text
+
+    });
     for (let i = 1; i <= daysInMonth; i++) {
         const div = document.createElement("div");
 
@@ -30,22 +38,21 @@ async function genRelevanteI() {
             } else {
                 div.innerHTML = `
                     <strong>${i}/${month}/${year}</strong>
-                    <label id="day-${i}"></label> <button onclick="editRelevante()" class="editBtn" style="width: 50px;"><img style="width: 35px;" src="/assets/edit.svg"></button>
+                    <label id="day-${i}">${relText[i] || ""}</label> <button onclick="editRelevante()" class="editBtn" style="width: 50px;"><img style="width: 35px;" src="/assets/edit.svg"></button>
                 `;
             }
         } else {
             div.innerHTML = `
                 <strong>${i}/${month}/${year}</strong>
-                <label id="day-${i}"></label>
+                <label id="day-${i}">${relText[i] || ""}</label>
             `;
-            if (i < currentDay) {
+            if (i < currentDay && relText[i] || "") {
                 div.innerHTML += `<button onclick="delRelevante(${i})" class="delBtn" bottom: 0; style="width: 50px;"><img style="width: 35px;" src="/assets/delete.svg"></button>`
             }
         }
 
         daysContainer.appendChild(div);
     }
-    getHechos();
 }
 genRelevanteI()
 
@@ -194,16 +201,6 @@ async function newRelevante() {
     }
 }
 
-async function getHechos() {
-    const response = await fetch("/getRelevante");
-    const data = await response.json();
-
-    data.forEach(([day, text]) => {
-        const span = document.getElementById(`day-${day}`);
-        if (span) span.textContent = text;
-    });
-}
-
 setInterval(() => {
     if (navigator.onLine) {
         document.getElementById("conn").src = "/assets/online.svg";
@@ -228,9 +225,21 @@ async function delRelevante(day) {
 }
 
 async function sonido() {
+    let preference = localStorage.getItem("sonidoPreference")
     if (document.getElementById("vol").src.includes("alert")) {
         document.getElementById("vol").src = "/assets/silence.svg"
-    } else {
+        localStorage.setItem("sonidoPreference", "silence")
+    } else if (document.getElementById("vol").src.includes("silence")) {
         document.getElementById("vol").src = "/assets/alert.svg"
+        localStorage.setItem("sonidoPreference", "alert")
     }
 }
+
+setInterval(() => {
+    let preference = localStorage.getItem("sonidoPreference")
+    if (preference == "silence") {
+        document.getElementById("vol").src = "/assets/silence.svg"
+    } else if (preference == "alert") {
+        document.getElementById("vol").src = "/assets/alert.svg"
+    }
+})
