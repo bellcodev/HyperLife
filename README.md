@@ -2,47 +2,102 @@
 
 ![Banner](https://github.com/user-attachments/assets/0ae04c4c-670f-4b77-ad1b-7df8d59cf090)
 
-LifeMap es una agenda simple, rapida e intuitiva para registrar hechos relevantes de tu dia a dia, un marcador de metas diarias y una grafica sobre los resultados de tu mes.
-
-<p>Una web de habitos diarios puede aumentar entre un 20% a un 40% tu productividad diaria</p>
-
----
-
-![License](https://img.shields.io/github/license/bellcodev/LifeMap?style=flat-square&style=for-the-badge)
-![Stars](https://img.shields.io/github/stars/bellcodev/LifeMap?style=flat-square&style=for-the-badge)
-![Issues](https://img.shields.io/github/issues/bellcodev/LifeMap?style=flat-s\quare&style=for-the-badge)
-![Last Commit](https://img.shields.io/github/last-commit/bellcodev/LifeMap?style=flat-square&style=for-the-badge)
+**LifeMap** es una **Web-App local** diseñada para mejorar tu rendimiento, disciplina y productividad diaria.  
+Con ella podrás registrar hechos relevantes, establecer metas diarias, visualizar tu progreso y mantener un control claro de tu desempeño mensual.
 
 ---
 
-**Hechos Relevantes**
-| <img width="1349" height="681" alt="image" src="https://github.com/user-attachments/assets/6ad34bfe-b264-49a3-8af4-91fb6e5d5916" /> |
+## 📊 Badges
+
+![License](https://img.shields.io/github/license/bellcodev/LifeMap?style=for-the-badge&logo=github)
+![Stars](https://img.shields.io/github/stars/bellcodev/LifeMap?style=for-the-badge&logo=github)
+![Forks](https://img.shields.io/github/forks/bellcodev/LifeMap?style=for-the-badge&logo=github)
+![Issues](https://img.shields.io/github/issues/bellcodev/LifeMap?style=for-the-badge&logo=github)
+![Pull Requests](https://img.shields.io/github/issues-pr/bellcodev/LifeMap?style=for-the-badge&logo=github)
+![Last Commit](https://img.shields.io/github/last-commit/bellcodev/LifeMap?style=for-the-badge&logo=git)
+![Repo Size](https://img.shields.io/github/repo-size/bellcodev/LifeMap?style=for-the-badge&logo=github)
+![Code Size](https://img.shields.io/github/languages/code-size/bellcodev/LifeMap?style=for-the-badge&logo=github)
+
+![Top Language](https://img.shields.io/github/languages/top/bellcodev/LifeMap?style=for-the-badge&logo=javascript)
+![Languages Count](https://img.shields.io/github/languages/count/bellcodev/LifeMap?style=for-the-badge&logo=code)
+
+![Docs](https://img.shields.io/badge/docs-available-brightgreen?style=for-the-badge&logo=readthedocs)
+![Wiki](https://img.shields.io/badge/wiki-enabled-blue?style=for-the-badge&logo=github)
+
+![Status](https://img.shields.io/badge/status-active-success?style=for-the-badge&logo=github)
+![Made With Love](https://img.shields.io/badge/made%20with-%E2%9D%A4-red?style=for-the-badge)
+
+---
+
+## ✨ Funcionalidades principales
+
+### 🔹 Hechos relevantes
+| <img width="1314" height="670" alt="image" src="https://github.com/user-attachments/assets/03d5e473-e4f8-4564-8a54-3a3184e57e23" /> |
 |---|
-<p>Permite registrar, ver, editar y borrar hechos relevantes de tu mes actual(segun la fecha de tu dispositivo), solo puedes editar el hecho ya registrado del dia actual</p>
+Registra lo más destacado de tu día, edita el día actual y consulta/borrar días anteriores.
 
-**Metas semanales**
-| <img width="1323" height="573" alt="image" src="https://github.com/user-attachments/assets/5ecf581a-04ea-4a60-a1a6-66f53670dcb5" /> | <img width="1340" height="346" alt="image" src="https://github.com/user-attachments/assets/4a9b51b6-6273-4398-8aa0-88e67eb358b2" /> |
+### 🔹 Metas diarias
+| <img width="1360" height="548" alt="image" src="https://github.com/user-attachments/assets/bbcef636-d14e-4274-85d7-78269b75e7c4" /> |
+|---|
+Define hasta **5 metas diarias** que te gustaría cumplir.
+
+| <img width="1358" height="381" alt="image" src="https://github.com/user-attachments/assets/c26824a2-1352-429a-8cce-a495de355dd9" /> |
+|---|
+Marca las metas cumplidas cada día.
+
+| <img width="1353" height="147" alt="image" src="https://github.com/user-attachments/assets/24e8f506-825f-4bb9-b956-f0643cf54df7" /> |
+|---|
+Visualiza tu progreso en una **gráfica interactiva**.
+
+### 🔹 Gráfica de rendimiento
+| <img width="1353" height="674" alt="image" src="https://github.com/user-attachments/assets/a79d09c6-d485-4e50-80e6-902da5cd4917" /> |
+|---|
+Consulta tu rendimiento mensual en una tabla clara e interactiva.
+
+---
+
+## 🎛 Funciones adicionales
+
+**Conexión a Internet**  
+| <img width="78" height="72" alt="image" src="https://github.com/user-attachments/assets/61b1b8a6-fe49-49a6-9c6e-a057d94d99f7" /> | <img width="61" height="59" alt="image" src="https://github.com/user-attachments/assets/d0a79753-8586-4b5c-8785-dee1a7047cbb" /> |
 |---|---|
+La app detecta si tienes conexión y muestra un indicador visual.
 
-| <img width="1326" height="158" alt="image" src="https://github.com/user-attachments/assets/16c0cf70-febd-4f9b-9ee3-0fe005830d22" /> |
-|---|
-
-<p>Te permite introducir hasta 5 metas que quieres cumplir y te deja marcar y enviar una vez al dia las que cumpliste o no</p>
-
-**Estadisticas Actuales**
-| <img width="1279" height="613" alt="image" src="https://github.com/user-attachments/assets/85ff86e1-29ba-4f27-937f-0cbe7dff0f13" /> |
-|---|
-<p>Todos los dias al registrar las metas cumplidas ese dia, te permite ver las estadisticas que llevas actualmente en la web mostrandolas en una grafica interactiva</p>
+**Silenciar sonidos**  
+| <img width="79" height="53" alt="image" src="https://github.com/user-attachments/assets/8321a419-d930-4a0b-94d7-83372e3a9e66" /> | <img width="75" height="55" alt="image" src="https://github.com/user-attachments/assets/2db41cd1-61d4-446f-8f12-ad9dce5102cb" /> |
+|---|---|
+Permite activar/desactivar alertas y errores con un botón de campana que guarda tu preferencia.
 
 ---
 
-## 🛠 Lenguajes y librerías usadas
+## 🎨 Interfaz
+
+La web tiene una interfaz clara con colores azules/morados y tonos blancos/grises, con botones estilizados al estilo de la aplicación.
+
+---
+
+## 🛠 Tecnologías utilizadas
 
 ![Python](https://img.shields.io/badge/Python-3.7+-blue?logo=python&logoColor=white&style=for-the-badge)
 ![FastAPI](https://img.shields.io/badge/FastAPI-0.95.2-red?logo=fastapi&logoColor=white&style=for-the-badge)
 ![JavaScript](https://img.shields.io/badge/JavaScript-ES6-yellow?logo=javascript&logoColor=white&style=for-the-badge)
-![SQLite3](https://img.shields.io/badge/SQLite3-DataBase-cyan?logo=sqlite&logoColor=white&style=for-the-badge)
-![Requests](https://img.shields.io/badge/requests-HTTP-green?logo=requests&logoColor=white&style=for-the-badge)
+![SQLite3](https://img.shields.io/badge/SQLite3-Database-cyan?logo=sqlite&logoColor=white&style=for-the-badge)
+![Requests](https://img.shields.io/badge/Requests-HTTP-green?logo=requests&logoColor=white&style=for-the-badge)
 ![Uvicorn](https://img.shields.io/badge/Uvicorn-Server-pink?logo=uvicorn&logoColor=white&style=for-the-badge)
 
-**Nota:** Toda la web depende de la fecha horaria del dispositivo y de la base de datos local, en caso de manipular manualmente la hora o la base de datos puede dañar el funcionamiento de la web o de sus datos
+---
+
+## ⚙️ Instalación y uso
+
+```bash
+# Clonar el repositorio
+git clone https://github.com/bellcodev/LifeMap.git
+
+# Entrar al directorio
+cd LifeMap
+
+# Instalar dependencias
+pip install -r requirements.txt
+
+# Ejecutar el servidor
+uvicorn main:app --reload
