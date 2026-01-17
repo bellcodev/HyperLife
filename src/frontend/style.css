@@ -181,3 +181,24 @@ button.sonido {
     left: 0;
     transition: none;
 }
+
+h3 {
+    margin: auto;
+    color: #444;
+}
+
+.insignia {
+    width: 150px;
+    transition: filter 0.7s ease-in-out;
+}
+
+.insignia:hover {
+    filter: drop-shadow(0 0 5px rgb(73, 89, 179));
+}
+
+#insignias-pts {
+    justify-content: center;
+    background-color: #e0e0e0;
+    border-radius: 10px;
+    margin: 20px;
+}
