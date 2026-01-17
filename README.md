@@ -1,25 +1,23 @@
 # LifeMap
 
-![Banner](https://github.com/user-attachments/assets/0ae04c4c-670f-4b77-ad1b-7df8d59cf090)
-
-**LifeMap** es una **Web-App local** diseñada para mejorar tu rendimiento, disciplina y productividad diaria.  
-Con ella podrás registrar hechos relevantes, establecer metas diarias, visualizar tu progreso y mantener un control claro de tu desempeño mensual.
+**HyperLife** es una **Web-App local** diseñada para mejorar tu rendimiento, disciplina y productividad diaria.  
+Con ella podrás registrar hechos relevantes, establecer metas diarias, visualizar tu progreso, ganar insignias y mantener un control claro de tu desempeño mensual.
 
 ---
 
 ## 📊 Badges
 
-![License](https://img.shields.io/github/license/bellcodev/LifeMap?style=for-the-badge&logo=github)
-![Stars](https://img.shields.io/github/stars/bellcodev/LifeMap?style=for-the-badge&logo=github)
-![Forks](https://img.shields.io/github/forks/bellcodev/LifeMap?style=for-the-badge&logo=github)
-![Issues](https://img.shields.io/github/issues/bellcodev/LifeMap?style=for-the-badge&logo=github)
-![Pull Requests](https://img.shields.io/github/issues-pr/bellcodev/LifeMap?style=for-the-badge&logo=github)
-![Last Commit](https://img.shields.io/github/last-commit/bellcodev/LifeMap?style=for-the-badge&logo=git)
-![Repo Size](https://img.shields.io/github/repo-size/bellcodev/LifeMap?style=for-the-badge&logo=github)
-![Code Size](https://img.shields.io/github/languages/code-size/bellcodev/LifeMap?style=for-the-badge&logo=github)
+![License](https://img.shields.io/github/license/bellcodev/HyperLife?style=for-the-badge&logo=github)
+![Stars](https://img.shields.io/github/stars/bellcodev/HyperLife?style=for-the-badge&logo=github)
+![Forks](https://img.shields.io/github/forks/bellcodev/HyperLife?style=for-the-badge&logo=github)
+![Issues](https://img.shields.io/github/issues/bellcodev/HyperLife?style=for-the-badge&logo=github)
+![Pull Requests](https://img.shields.io/github/issues-pr/bellcodev/HyperLife?style=for-the-badge&logo=github)
+![Last Commit](https://img.shields.io/github/last-commit/bellcodev/HyperLife?style=for-the-badge&logo=git)
+![Repo Size](https://img.shields.io/github/repo-size/bellcodev/HyperLife?style=for-the-badge&logo=github)
+![Code Size](https://img.shields.io/github/languages/code-size/bellcodev/HyperLife?style=for-the-badge&logo=github)
 
-![Top Language](https://img.shields.io/github/languages/top/bellcodev/LifeMap?style=for-the-badge&logo=javascript)
-![Languages Count](https://img.shields.io/github/languages/count/bellcodev/LifeMap?style=for-the-badge&logo=code)
+![Top Language](https://img.shields.io/github/languages/top/bellcodev/HyperLife?style=for-the-badge&logo=javascript)
+![Languages Count](https://img.shields.io/github/languages/count/bellcodev/HyperLife?style=for-the-badge&logo=code)
 
 ![Docs](https://img.shields.io/badge/docs-available-brightgreen?style=for-the-badge&logo=readthedocs)
 ![Wiki](https://img.shields.io/badge/wiki-enabled-blue?style=for-the-badge&logo=github)
@@ -32,7 +30,7 @@ Con ella podrás registrar hechos relevantes, establecer metas diarias, visualiz
 ## ✨ Funcionalidades principales
 
 ### 🔹 Hechos relevantes
-| <img width="1314" height="670" alt="image" src="https://github.com/user-attachments/assets/03d5e473-e4f8-4564-8a54-3a3184e57e23" /> |
+| <img width="1347" height="687" alt="image" src="https://github.com/user-attachments/assets/b191dbc7-481e-494a-8978-fd0278d7db21" /> |
 |---|
 Registra lo más destacado de tu día, edita el día actual y consulta/borrar días anteriores.
 
@@ -53,6 +51,17 @@ Visualiza tu progreso en una **gráfica interactiva**.
 | <img width="1353" height="674" alt="image" src="https://github.com/user-attachments/assets/a79d09c6-d485-4e50-80e6-902da5cd4917" /> |
 |---|
 Consulta tu rendimiento mensual en una tabla clara e interactiva.
+
+### 🔹Sistema de Insignias
+| <img width="1357" height="307" alt="image" src="https://github.com/user-attachments/assets/884dfa28-c3cd-49be-8c63-066d0577e81e" /> |
+|---|
+La **Web** cuenta con un **Sistema de Insignias** basico que motiva a las personas a seguir y conseguir mas metas diarias
+Cuenta con las insignias:
+- Bronce (Se consigue a los 100 puntos)
+- Plata (Se consigue a los 300 puntos)
+- Oro (Se consigue a los 500 puntos)
+- Diamante (Se consigue a los 1000 puntos)
+**Nota:** Cada meta diaria cumplida da 5 puntos
 
 ---
 
