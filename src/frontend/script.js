@@ -203,11 +203,11 @@ async function newRelevante() {
 
 setInterval(() => {
     if (navigator.onLine) {
-        document.getElementById("conn").src = "/assets/online.svg";
+        document.getElementById("conn").src = "/assets/offline.svg";
     } else {
         document.getElementById("conn").src = "/assets/offline.svg";
     }
-}, 1000)
+})
 
 async function editRelevante() {
     await fetch("/delCurrentRel", {method: "DELETE"})
@@ -243,3 +243,27 @@ setInterval(() => {
         document.getElementById("vol").src = "/assets/alert.svg"
     }
 })
+
+async function getInsignias() {
+    const response = await fetch("/getInsignias");
+    const data = await response.json();
+    const total = data * 5;
+    const content = document.getElementById("insignias-pts");
+
+    if (total >= 100) {
+        content.innerHTML += '<img class="insignia" id="bronce" title="Bronce - 100pts" src="/assets/bronce.png">';
+    } else {
+        content.innerHTML += '<label>No tienes ninguna insignia, Consigue tu primera insignia acumulando 100 puntos</label>';
+    }
+    if (total >= 300) {
+        content.innerHTML += '<img class="insignia" id="plata" title="Plata - 300pts" src="/assets/plata.png">';
+    }
+    if (total >= 500) {
+        content.innerHTML += '<img class="insignia" id="oro" title="Oro - 500pts" src="/assets/oro.png">';
+    }
+    if (total >= 1000) {
+        content.innerHTML += '<img class="insignia" id="diamante" title="Diamante - 1000pts" src="/assets/diamante.png">';
+    }
+    content.innerHTML += `<p>Tienes un total de ${total} puntos acumulados ¡Sigue asi!</p>`
+}
+getInsignias()
