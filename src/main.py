@@ -11,7 +11,6 @@ from fastapi import Body
 
 app = FastAPI()
 
-# CORS (IMPORTANTE)
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -19,10 +18,9 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-app.mount("/frontend", StaticFiles(directory="frontend"), name="frontend")
+app.mount("/src/frontend", StaticFiles(directory="frontend"), name="frontend")
 app.mount("/audio", StaticFiles(directory="../audio"), name="audio")
 app.mount("/assets", StaticFiles(directory="../assets"), name="assets")
-app.mount("/src", StaticFiles(directory="/"), name="src")
 
 class Relevante(BaseModel):
     relevante: str
@@ -190,3 +188,14 @@ async def delRelevante(
     conn.commit()
     conn.close()
     return "sucess"
+
+@app.get("/getInsignias")
+async def get_insignias():
+    conn = sqlite3.connect("data.db")
+    cursor = conn.cursor()
+    cursor.execute("""SELECT * FROM dayLogros""")
+    data = cursor.fetchall()
+    total = 0
+    for d in data:
+        total+=int(d[1])
+    return total
