@@ -12,6 +12,7 @@
     <nav>
         <img src="/assets/offline.svg" id="conn" title="Connection">
         <button class="sonido" title="volumen" onclick="sonido()"><img src="/assets/alert.svg" id="vol" alt="volumen"></button>
+        <button id="theme-toggle" style="width:50px; background-color: transparent; transition: none;"><img id="theme" src="/assets/sun.svg" alt="theme"></button>
         <div class="social">
             <a href="https://github.com/bellcodev" title="My Github">
                 <img src="/assets/github-icon.svg" alt="Github">
@@ -22,17 +23,7 @@
         </div>
     </nav>
     <h1>HyperLife</h1>
-    <div id="relevante"></div>
-    <br>
-    <div id="logrosDiv">
-        <h2>Metas Diarias</h2>
-        <div id="logros"></div>
-    </div>
-    <br>
-    <div id="insignias">
-        <h2>Insignias</h2>
-        <div id="insignias-pts"></div>
-    </div>
+    <div id="container"></div>
     <audio id="alert" src="/audio/alert.mp3"></audio>
     <audio id="error" src="/audio/error.mp3"></audio>
     <script src="/src/frontend/script.js"></script>

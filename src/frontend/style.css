@@ -1,3 +1,31 @@
+:root {
+    /* Tema claro por defecto */
+    --bg-color: #ffffff;
+    --text-color: #111111;
+    --accent-color: #6c63ff;
+    --accent-hover: #7a72ff;
+    --card-bg: #f4f4f9;
+    --card-border: #ddd;
+    --label-bg: #e0e0e0;
+    --label-text: #444;
+    --completed-bg: #e0ffe0;
+    --completed-border: #80c080;
+}
+
+/* Tema oscuro */
+.dark-theme {
+    --bg-color: #11111b;
+    --text-color: #e0e0e0;
+    --accent-color: #6c63ff;
+    --accent-hover: #7a72ff;
+    --card-bg: #1e1e2f;
+    --card-border: #3a3a4d;
+    --label-bg: #2a2a3d;
+    --label-text: #d0d0d0;
+    --completed-bg: #1e2f1e;
+    --completed-border: #80c080;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -25,17 +53,18 @@
 
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #f4f4f9;
-    color: #333;
+    background-color: var(--bg-color);
+    color: var(--text-color);
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 h1 {
     text-align: center;
     font-size: 3rem;
-    color: #6c63ff;
+    color: var(--accent-color);
     margin-bottom: 20px;
 }
 
@@ -48,7 +77,7 @@ h1 {
 h2 {
     font-size: 2rem;
     text-align: center;
-    color: #555;
+    color: var(--label-text);
     margin-bottom: 15px;
 }
 
@@ -152,8 +181,7 @@ nav {
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-    background-color: #fff;
-    border-bottom: 1px solid #ddd;
+    background-color: var(--card-bg);
     top: 0;
     left: 0;
 }
@@ -198,7 +226,81 @@ h3 {
 
 #insignias-pts {
     justify-content: center;
-    background-color: #e0e0e0;
+    background-color: var(--label-bg);
     border-radius: 10px;
     margin: 20px;
+}
+
+svg {
+    width: 300px;
+    height: 300px;
+}
+#rachaText {
+    font-family: 'Segoe UI', sans-serif;
+    font-weight: bold;
+    fill: #ffffff;
+}
+
+#racha {
+    margin: auto;
+    max-width: 500px;
+    text-align: center;
+}
+
+#days div {
+    background-color: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 8px;
+    padding: 10px;
+    text-align: center;
+    transition: transform 0.3s ease-in-out, background-color 0.3s;
+}
+
+#days div:hover {
+    transform: scale(1.05);
+    background-color: var(--label-bg);
+}
+
+label {
+    display: block;
+    background-color: var(--label-bg);
+    padding: 8px;
+    border-radius: 4px;
+    font-size: 1rem;
+    color: var(--label-text);
+    margin-top: 10px;
+}
+
+input {
+    width: 80%;
+    padding: 8px;
+    border: 1px solid var(--card-border);
+    border-radius: 4px;
+    font-size: 1rem;
+    margin-top: 10px;
+    background-color: var(--card-bg);
+    color: var(--text-color);
+    transition: opacity 0.3s ease-in-out;
+}
+
+button {
+    width: 80%;
+    padding: 10px;
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: var(--accent-hover);
+}
+
+#days div.completed {
+    background-color: var(--completed-bg);
+    border: 1px solid var(--completed-border);
 }

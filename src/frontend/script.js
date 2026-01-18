@@ -1,3 +1,25 @@
+function detectEndpoint() {
+    const path = window.location.pathname;
+    const content = document.getElementById("container")
+    if (path == "/") {
+        content.innerHTML = `
+            <div id="relevante"></div>
+            <div id="logrosDiv">
+                <h2>Metas Diarias</h2>
+                <div id="logros"></div>
+            </div>
+            <div id="insignias">
+                <h2>Insignias</h2>
+                <div id="insignias-pts"></div>
+            </div>
+
+            <h2>Racha Hechos Relevantes</h2>
+            <div id="racha"></div>
+        `
+    }
+}
+detectEndpoint()
+
 const now = new Date();
 const year = now.getFullYear();
 const month = now.getMonth() + 1;
@@ -102,6 +124,7 @@ async function sendThisDay() {
             body: JSON.stringify(payload)
         });
         localStorage.setItem('logroDay', currentDay)
+        localStorage.setItem('rachaDay', currentDay)
         checkThisDay()
 
         playAudio("alert");
@@ -195,6 +218,7 @@ async function newRelevante() {
             <label>${text}</label> <button onclick="editRelevante()" style="width: 50px;"><img style="width: 35px;" src="/assets/edit.svg"> </button>
         `;
         localStorage.setItem("lastRelevante", currentDay)
+        localStorage.setItem("rachaDay", currentDay)
     } catch (error) {
         playAudio("error")
         alert(error);
@@ -264,6 +288,60 @@ async function getInsignias() {
     if (total >= 1000) {
         content.innerHTML += '<img class="insignia" id="diamante" title="Diamante - 1000pts" src="/assets/diamante.png">';
     }
+    if (total >= 2000) {
+        content.innerHTML += '<img class="insignia" id="platino" title="Platino - 2000pts" src="/assets/platino.png">';
+    }
     content.innerHTML += `<p>Tienes un total de ${total} puntos acumulados ¡Sigue asi!</p>`
 }
 getInsignias()
+
+function checkRacha() {
+    const lastDay = parseInt(localStorage.getItem("rachaDay")) || 0;
+    const racha = parseInt(localStorage.getItem("racha")) || 0;
+
+    if (lastDay === currentDay - 1) {
+        const newRacha = racha + 1;
+        localStorage.setItem("racha", newRacha);
+    } else if (lastDay === currentDay) {
+        localStorage.setItem("racha", racha);
+    } else {
+        localStorage.setItem("racha", 1);
+    }
+
+    localStorage.setItem("rachaDay", currentDay);
+    document.getElementById("racha").innerHTML = `
+
+<svg id="logoRacha" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <defs>
+    <linearGradient id="gradDiamond" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8abbffff"/>
+      <stop offset="50%" stop-color="#286cb9ff"/>
+      <stop offset="100%" stop-color="#2600ffff"/>
+    </linearGradient>
+  </defs>
+  <polygon points="100,20 180,100 100,180 20,100"
+           fill="url(#gradDiamond)" stroke="#006affff" stroke-width="6"
+           filter="drop-shadow(0 0 5px #006affff)" />
+  <text id="rachaText" x="100" y="115"
+        font-size="46"
+        text-anchor="middle"
+        dominant-baseline="middle">
+    0
+  </text>
+</svg>`;
+document.getElementById("rachaText").textContent = racha;
+}
+checkRacha();
+
+const toggleBtn = document.getElementById("theme-toggle");
+const body = document.body;
+
+toggleBtn.addEventListener("click", () => {
+    const theme = document.getElementById("theme");
+    if (theme.src.includes("sun")) {
+        theme.src = "/assets/moon.svg";
+    } else {
+        theme.src = "/assets/sun.svg";
+    }
+    body.classList.toggle("dark-theme");
+});
