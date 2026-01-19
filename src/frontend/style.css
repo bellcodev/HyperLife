@@ -203,13 +203,6 @@ nav img {
     background-color: transparent;
 }
 
-button.sonido {
-    width: 30px;
-    background: transparent;
-    left: 0;
-    transition: none;
-}
-
 h3 {
     margin: auto;
     color: #444;
@@ -303,4 +296,73 @@ button:hover {
 #days div.completed {
     background-color: var(--completed-bg);
     border: 1px solid var(--completed-border);
+}
+
+button.btnNav {
+    width:50px;
+    background-color: transparent;
+    transition: none;
+}
+
+.rutas {
+    margin-left: 10px;
+    text-decoration: none;
+    color: var(--label-text);
+    transition: text-decoration 0.5s, color 0.5s;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+}
+
+.rutas:hover {
+    text-decoration: underline;
+    color: #5a54d8;
+}
+
+/* Estilos generales */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.hamburger {
+    display: none;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    width: 0px;
+    transition: none;
+    color: var(--label-text);
+}
+
+.hamburger:hover {
+    background: none;
+}
+
+/* Menú normal */
+.menu {
+    display: flex;
+    gap: 1rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+    .menu {
+        display: none;
+        flex-direction: column;
+        background: var(--bg-color);
+        position: absolute;
+        top: 120px;
+        left: 10px;
+        padding: 1rem;
+        border-radius: 8px;
+        border: var(--card-border);
+    }
+    .menu.show {
+        display: flex;
+    }
 }

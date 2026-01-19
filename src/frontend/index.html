@@ -4,22 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta property="og:image" content="/assets/favicon.svg">
-    <title>Life Map</title>
+    <title>HyperLife</title>
     <link rel="stylesheet" href="/src/frontend/style.css">
-    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="/assets/favicon.ico" type="image/ico">
 </head>
 <body>
     <nav>
-        <img src="/assets/offline.svg" id="conn" title="Connection">
-        <button class="sonido" title="volumen" onclick="sonido()"><img src="/assets/alert.svg" id="vol" alt="volumen"></button>
-        <button id="theme-toggle" style="width:50px; background-color: transparent; transition: none;"><img id="theme" src="/assets/sun.svg" alt="theme"></button>
-        <div class="social">
-            <a href="https://github.com/bellcodev" title="My Github">
-                <img src="/assets/github-icon.svg" alt="Github">
-            </a>
-            <a href="https://instagram.com/whoisronystar" title="My Instagram">
-                <img src="/assets/instagram-icon.svg" alt="Instagram">
-            </a>
+        <button class="hamburger" id="hamburger">☰</button>
+        <div class="menu" id="menu">
+            <div class="nav-left">
+                <img src="/assets/offline.svg" id="conn" title="Connection">
+                <button type="button" class="btnNav" title="volumen" onclick="sonido()">
+                    <img src="/assets/alert.svg" id="vol" alt="volumen">
+                </button>
+                <button id="theme-toggle" class="btnNav" type="button">
+                    <img id="theme" src="/assets/sun.svg" alt="theme">
+                </button>
+            </div>
+
+
+            <div class="social">
+                <a href="https://github.com/bellcodev" title="My Github">
+                    <img src="/assets/github-icon.svg" alt="Github">
+                </a>
+                <a href="https://instagram.com/whoisronystar" title="My Instagram">
+                    <img src="/assets/instagram-icon.svg" alt="Instagram">
+                </a>
+            </div>
+
+        </div>
+        <div>
+            <a class="rutas" href="/trofeos">Sala de Trofeos</a>
+            <a class="rutas" href="/">Home</a>
         </div>
     </nav>
     <h1>HyperLife</h1>

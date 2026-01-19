@@ -58,6 +58,11 @@ def root():
     createTable()
     return FileResponse("frontend/index.html")
 
+@app.get("/trofeos")
+def trofeos():
+    createTable()
+    return FileResponse("frontend/index.html")
+
 @app.post("/newRelevante")
 def new_relevante(data: Relevante):
     conn = sqlite3.connect("data.db")

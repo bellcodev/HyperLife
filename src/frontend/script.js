@@ -1,3 +1,11 @@
+
+const now = new Date();
+const year = now.getFullYear();
+const month = now.getMonth() + 1;
+const daysInMonth = new Date(year, month, 0).getDate();
+const currentDay = now.getDate();
+const current = `${currentDay}, ${now.getHours()}:${now.getMinutes()}:${now.getSeconds()}`
+
 function detectEndpoint() {
     const path = window.location.pathname;
     const content = document.getElementById("container")
@@ -8,6 +16,27 @@ function detectEndpoint() {
                 <h2>Metas Diarias</h2>
                 <div id="logros"></div>
             </div>
+        `
+        fetch("/getLogros")
+        .then(res => res.json())
+        .then(data => {
+            if (!data || data.length === 0) {
+                genLogrosI()
+            } else {
+                checkThisDay()
+            }
+        }).catch(err => console.error("Error al cargar logros:", err));
+        const relevante = document.getElementById("relevante");
+
+        const months = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+        relevante.innerHTML = `
+        <h2>Hechos relevantes de ${months[month - 1]} ${year}</h2>
+        <div id="days"></div>
+        `;
+        genRelevanteI()
+    } else if (path == "/trofeos") {
+        content.innerHTML = `
+            <h2 style="text-decoration: underline;">Sala de Trofeos</h2>
             <div id="insignias">
                 <h2>Insignias</h2>
                 <div id="insignias-pts"></div>
@@ -16,28 +45,15 @@ function detectEndpoint() {
             <h2>Racha Hechos Relevantes</h2>
             <div id="racha"></div>
         `
+        getInsignias()
+        checkRacha()
     }
 }
 detectEndpoint()
 
-const now = new Date();
-const year = now.getFullYear();
-const month = now.getMonth() + 1;
-const daysInMonth = new Date(year, month, 0).getDate();
-const currentDay = now.getDate();
-const current = `${currentDay}, ${now.getHours()}:${now.getMinutes()}:${now.getSeconds()}`
-
-const relevante = document.getElementById("relevante");
-
-const months = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
-relevante.innerHTML = `
-<h2>Hechos relevantes de ${months[month - 1]} ${year}</h2>
-<div id="days"></div>
-`;
-
-const daysContainer = document.getElementById("days");
 
 async function genRelevanteI() {
+    const daysContainer = document.getElementById("days");
     daysContainer.innerHTML = ``
     const response = await fetch("/getRelevante");
     const data = await response.json();
@@ -76,7 +92,6 @@ async function genRelevanteI() {
         daysContainer.appendChild(div);
     }
 }
-genRelevanteI()
 
 const logros = document.getElementById("logros");
 
@@ -149,16 +164,6 @@ async function genLogrosCBtn() {
     })
 
 }
-
-fetch("/getLogros")
-.then(res => res.json())
-.then(data => {
-    if (!data || data.length === 0) {
-        genLogrosI()
-    } else {
-        checkThisDay()
-    }
-}).catch(err => console.error("Error al cargar logros:", err));
 
 async function addLogros() {
     try {
@@ -259,14 +264,20 @@ async function sonido() {
     }
 }
 
-setInterval(() => {
-    let preference = localStorage.getItem("sonidoPreference")
-    if (preference == "silence") {
-        document.getElementById("vol").src = "/assets/silence.svg"
-    } else if (preference == "alert") {
-        document.getElementById("vol").src = "/assets/alert.svg"
-    }
-})
+
+const body = document.body;
+let preferenceSound = localStorage.getItem("sonidoPreference")
+if (preferenceSound == "silence") {
+    document.getElementById("vol").src = "/assets/silence.svg"
+} else if (preferenceSound == "alert") {
+    document.getElementById("vol").src = "/assets/alert.svg"
+}
+
+let preferenceTheme = localStorage.getItem("preferenceTheme")
+if (preferenceTheme == "dark") {
+    document.getElementById("theme").src = "/assets/moon.svg"
+    body.classList.toggle("dark-theme");
+}
 
 async function getInsignias() {
     const response = await fetch("/getInsignias");
@@ -293,7 +304,6 @@ async function getInsignias() {
     }
     content.innerHTML += `<p>Tienes un total de ${total} puntos acumulados ¡Sigue asi!</p>`
 }
-getInsignias()
 
 function checkRacha() {
     const lastDay = parseInt(localStorage.getItem("rachaDay")) || 0;
@@ -331,17 +341,22 @@ function checkRacha() {
 </svg>`;
 document.getElementById("rachaText").textContent = racha;
 }
-checkRacha();
 
 const toggleBtn = document.getElementById("theme-toggle");
-const body = document.body;
 
 toggleBtn.addEventListener("click", () => {
     const theme = document.getElementById("theme");
     if (theme.src.includes("sun")) {
         theme.src = "/assets/moon.svg";
+        localStorage.setItem("preferenceTheme", "dark")
     } else {
         theme.src = "/assets/sun.svg";
+        localStorage.setItem("preferenceTheme", "light")
     }
     body.classList.toggle("dark-theme");
 });
+
+document.getElementById("hamburger").addEventListener("click", function() {
+    document.getElementById("menu").classList.toggle("show");
+});
+
